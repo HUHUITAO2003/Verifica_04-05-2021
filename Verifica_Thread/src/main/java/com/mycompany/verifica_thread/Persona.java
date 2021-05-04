@@ -9,16 +9,23 @@ package com.mycompany.verifica_thread;
  *
  * @author informatica
  */
-public class Utente implements Runnable{
+public class Persona implements Runnable{
     String nome; 
     String sesso;
 
-    public Utente(String nome, String sesso) { //identificativo del thread
+    /**
+    * costruttore per realizzare l'istanza
+    * @param nome per definire l'identificatore della persona
+    * @param sesso per definire il sesso della persona
+    */
+    public Persona(String nome, String sesso) { //identificativo del thread
          this.nome=nome;
          this.sesso=sesso;
     }
 
-
+    /**
+    * azioni che esegue il thread
+    */
     @Override
     public void run() {
         if(sesso.equals("donna")){

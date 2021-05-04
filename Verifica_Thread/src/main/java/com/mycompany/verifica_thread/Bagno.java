@@ -14,6 +14,10 @@ import java.util.logging.Logger;
  * @author informatica
  */
 public class Bagno {
+    /**
+     * metodo che la persona usa per andare in bagno
+     * @param nome identificatore della persona
+     */
     public void occupato(String nome){
         System.out.println(nome+" entra in bagno");
         try {

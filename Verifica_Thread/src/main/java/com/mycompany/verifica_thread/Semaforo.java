@@ -15,11 +15,18 @@ import java.util.logging.Logger;
 public class Semaforo {
     int valore; // indica la multeciplita della risorsa, quanti thread vi possono accedere contemporaneamente
 
+    /**
+    * costruttore per realizzare l'istanza
+    * @param variabile per definire la multeplicità della risorsa
+    */
     public Semaforo(int valore) {
         this.valore = valore;
     }
     
-    synchronized public void P(){ //metodo per richiedere la risorsa
+    /**
+    * metodo per richiedere la risorsa
+    */
+    synchronized public void P(){ 
         while(valore==0){ //quando valore=0 la risorsa è occupata, il thread si mette in coda ad aspettare che la risorsa si liberi
             try {
                 wait();
@@ -30,6 +37,10 @@ public class Semaforo {
         valore--; //il thread ha occputa la risorsa
     }
     
+    
+    /**
+    * metodo per rilasciare la risorsa
+    */
     synchronized public void V(){
         valore++;//rilascia la risorsa
         notify();//avverte il primo thread nella coda di aver rilasciato la risorsa
